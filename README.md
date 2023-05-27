@@ -62,3 +62,5 @@ So using Rate Limit rule we can set the threshold to limit the request.
 If you want only 100 request should be allowed for this page, then we can set the threashold to 100 req/min, if any request breaches the threshold then WAF will block the IP for certain time [Mostly 10 min is the penalty box] then request will not be allowed for the attackers IP for 10 mins.
 
 After 10 min if any request triggers from the same attacker IP again request will be matched against the Rate Limit rule, if request doest breach the Rate Limit Threashold then request will be treated a normal request and request will be allowed by WAF.
+
+Please note you need to replace the url in both the scripts. Please add the urls which you want to test
