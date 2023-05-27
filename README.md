@@ -23,8 +23,7 @@ which means WAF rule has been triggered
 < x-timer: S1685161085.616294,VS0,VE49
 < content-length: 13
 < 
-{ [13 bytes data]
-* Connection #0 to host api-m.paypal.com left intact
+
 
 If WAF rule is not triggered then then it will send 200 OK HTTP response code:
 
