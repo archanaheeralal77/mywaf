@@ -1,4 +1,4 @@
-# How to Evaluate WAF
+# How to Evaluate WAF and Rate Limit Rules
 
 We can use EvalWAF python script to test any WAF, if we run the script it will help to identify if WAF rules are being triggered or not.
 
