@@ -1,4 +1,4 @@
-# mywaf
+# How to Evaluate WAF
 
 We can use EvalWAF python script to test any WAF, if we run the script it will help to identify if WAF rules are being triggered or not.
 
@@ -46,4 +46,19 @@ If WAF rule is not triggered then then it will send 200 OK HTTP response code:
 < set-cookie: referringUrl_1=; Max-Age=604800; Path=/; Secure; SameSite=Lax
 **
 
+We can use rl1.py script to test the rate limiting rule of WAF.
 
+What is Rate Limit Rule --> RL WAF rule protects application from volumetric attack.
+In the rate limit rule of WAF we can set the threshold to limit the http request.
+
+What is volumetric attack? --> when attacker tries to send multiple request to dos your application. an attack can send milions of request in 1 minute on your application, in that case if your origin server is not upscalled then origin server will not be able to take the load and can be dosed or application can be crashed
+
+Example: www.example.com/loginpage/ attacker might try to dos this login page by sending multiple request 
+
+1000000 request/min
+
+So using Rate Limit rule we can set the threshold to limit the request.
+
+If you want only 100 request should be allowed for this page, then we can set the threashold to 100 req/min, if any request breaches the threshold then WAF will block the IP for certain time [Mostly 10 min is the penalty box] then request will not be allowed for the attackers IP for 10 mins.
+
+After 10 min if any request triggers from the same attacker IP again request will be matched against the Rate Limit rule, if request doest breach the Rate Limit Threashold then request will be treated a normal request and request will be allowed by WAF.
